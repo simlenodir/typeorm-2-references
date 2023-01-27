@@ -10,8 +10,8 @@ const dataSource = new DataSource({
     username: 'postgres',
     password: 'nodir',
     database: 'n33',
-    entities: [path.join(__dirname, '..', '*.entity/{ts,js}')],
-    migrations: [],
+    entities: [path.join(__dirname, '..', 'entities' ,'*.entity.{ts,js}')],
+    migrations: [path.join(__dirname, '..', 'migrations' ,'**/*.{ts,js}')],
     synchronize: false
 })
 
