@@ -36,9 +36,31 @@ class EmployeesController{
             .returning(['employeesEmployeeId', 'jobsJobId'])
             .execute()
 
-            console.log(newEmployeeJob);
-            
         res.json(newEmployee)    
+    }
+    public async POST_jemployeeJob(req: Request, res: Response):Promise<void> {
+        const {employeeId, jobId} = req.body
+
+        const employeesEmployeeId = employeeId
+        const jobsJobId = jobId
+        console.log(employeeId, jobId);
+        
+       try {
+        const newEmployeeJob = await dataSource
+        .createQueryBuilder()
+        .insert()
+        .into('jobs_employees_employees')
+        .values({jobsJobId, employeesEmployeeId})
+        .returning([jobsJobId, employeesEmployeeId])
+        .execute()
+
+        res.json(newEmployeeJob)
+        console.log(newEmployeeJob);
+        
+       } catch (error) {
+            console.log(error);
+            
+       }
     }
 }
 

@@ -8,4 +8,5 @@ export default router
     .get('/jobs/get', jobs.GET_jobs)
     .post('/jobs/create', jobs.POST_jobs)
     .get('/employees/get', employees.GET_employees)
-    .post('/employee/create', employees.POST_jemployee, )
+    .post('/employee/create', employees.POST_jemployee)
+    .post('/employee/add-job', employees.POST_jemployeeJob)
